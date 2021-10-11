@@ -9,17 +9,17 @@ import { MembersService } from 'src/app/_services/members.service';
   styleUrls: ['./member-card.component.css'],
 })
 export class MemberCardComponent implements OnInit {
-  @Input() member!: Member;
+  @Input() member: Member;
 
   constructor(private memberService: MembersService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
-  addLike(member: Member){
+  addLike(member: Member) {
     this.memberService.addLike(member.username).subscribe(() => {
       this.toastr.success('You have liked ' + member.knownAs);
-    });
+    })
   }
 
 }

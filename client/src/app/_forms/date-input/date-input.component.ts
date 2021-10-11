@@ -11,7 +11,7 @@ export class DateInputComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() maxDate: Date;
   bsConfig: Partial<BsDatepickerConfig>;
-  
+
   constructor(@Self() public ngControl: NgControl) { 
     this.ngControl.valueAccessor = this;
     this.bsConfig = {
