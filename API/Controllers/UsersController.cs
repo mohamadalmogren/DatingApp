@@ -1,4 +1,3 @@
-using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -8,11 +7,8 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -30,7 +26,6 @@ namespace API.Controllers
             _mapper = mapper;
             _userRepository = userRepository;
         }
-
         [HttpGet]
         // api/users
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
@@ -49,7 +44,6 @@ namespace API.Controllers
             return Ok(users);
         }
 	
-
         [HttpGet("{username}", Name ="GetUser")]
         // api/users/usernmae
         public async Task<ActionResult<MemberDto>> GetUser(string username)

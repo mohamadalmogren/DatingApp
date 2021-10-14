@@ -56,7 +56,7 @@
     </table>
 </div>
 
-<div class="d-flex justify-content-center" *ngIf="pagination && !loading">
+<div class="d-flex justify-content-center" *ngIf="pagination && !loading && messages?.length > 0">
     <pagination 
         [boundaryLinks]="true" 
         [totalItems]="pagination.totalItems"
