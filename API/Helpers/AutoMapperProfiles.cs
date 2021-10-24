@@ -3,6 +3,7 @@ using API.Entities;
 using API.Extensions;
 using AutoMapper;
 using System.Linq;
+using System;
 
 namespace API.Helpers
 {
@@ -26,6 +27,8 @@ namespace API.Helpers
                     src.Sender.Photos.FirstOrDefault(x => x.isMain).url))
                 .ForMember(dest => dest.RecipientPhotoUrl, opt => opt.MapFrom(src => 
                     src.Recipient.Photos.FirstOrDefault(x => x.isMain).url));
+                    
+            CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d, DateTimeKind.Utc));
         }
     }
 }
